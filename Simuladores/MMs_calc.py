@@ -4,7 +4,7 @@ results = {
     "lambda": 0.0,
     "miu": 0.0,
     "s": 0,
-    "ro": 0.0,
+    "rho": 0.0,
     "p0": 0.0,
     "Lq": 0.0,
     "L": 0.0,
@@ -25,8 +25,8 @@ def calcular_Po(tasa_llegadas, tasa_servicios, servidores):
     return po
 
 def calcular_Lq(tasa_llegadas, tasa_servicios, servidores):
-    lq = (results["p0"] * ((tasa_llegadas/tasa_servicios)**servidores) * results["ro"])\
-         / (factorial(servidores) * ((1-results["ro"])**2))
+    lq = (results["p0"] * ((tasa_llegadas/tasa_servicios)**servidores) * results["rho"])\
+         / (factorial(servidores) * ((1-results["rho"])**2))
     return lq
 
 def calcular(tasa_llegadas, tasa_servicios, servidores):
@@ -36,9 +36,9 @@ def calcular(tasa_llegadas, tasa_servicios, servidores):
 
     # RO: fact de utilizacion de instalacion
     # del servicio
-    results["ro"] = results["lambda"] / (results["s"] * results["miu"])
-    if(results["ro"] > 1):
-        print(" ro: "+str(results["ro"]) + " > " + "1")
+    results["rho"] = results["lambda"] / (results["s"] * results["miu"])
+    if(results["rho"] > 1):
+        print(" rho: "+str(results["rho"]) + " > " + "1")
         return "Condicion de estado no estable, verifique sus datos!!!!!!!!"
 
     results["p0"] = calcular_Po(results["lambda"], results["miu"], results["s"])
@@ -57,4 +57,4 @@ def calcular(tasa_llegadas, tasa_servicios, servidores):
 
     return results
 
-print(calcular(100,60,2))
+#print(calcular(100,60,2))

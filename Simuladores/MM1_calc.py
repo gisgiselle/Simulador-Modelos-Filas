@@ -1,5 +1,3 @@
-
-
 results = {
     "lambda": 0.0,
     "miu": 0.0,
@@ -28,4 +26,4 @@ def calcular(tasa_servicios, tasa_llegadas):
 
     return results
 
-print(calcular(3,2))
+#print(calcular(3,2))
