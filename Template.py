@@ -10,8 +10,8 @@ pokemon_info = [['Bulbasaur', 'Grass', '318'], ['Ivysaur', 'Grass', '405'], ['Ve
 
 
 frame_styles = {"relief": "groove",
-                "bd": 3, "bg": "#BEB2A7",
-                "fg": "#073bb3", "font": ("Arial", 9, "bold")}
+                "bd": 3, "bg": "#FFFFFF",
+                "fg": "#073bb3", "font": ("Century Gothic", 9, "bold")}
 
 
 
@@ -20,31 +20,29 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
 
         menu_file = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu1", menu=menu_file)
-        menu_file.add_command(label="All Widgets", command=lambda: parent.show_frame(Some_Widgets))
-        menu_file.add_separator()
+        self.add_cascade(label="M/M/1", menu=menu_file)
+       # menu_file.add_command(label="All Widgets", command=lambda: parent.show_frame(Some_Widgets))
+        #menu_file.add_separator()
         menu_file.add_command(label="Exit Application", command=lambda: parent.Quit_application())
 
         menu_orders = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu2", menu=menu_orders)
+        self.add_cascade(label="M/M/s", menu=menu_orders)
 
         menu_pricing = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu3", menu=menu_pricing)
-        menu_pricing.add_command(label="Page One", command=lambda: parent.show_frame(PageOne))
+        self.add_cascade(label="M/M/s/K", menu=menu_pricing)
 
         menu_operations = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu4", menu=menu_operations)
-        menu_operations.add_command(label="Page Two", command=lambda: parent.show_frame(PageTwo))
+        self.add_cascade(label="M/M/G/1", menu=menu_operations)
+
         menu_positions = tk.Menu(menu_operations, tearoff=0)
-        menu_operations.add_cascade(label="Menu5", menu=menu_positions)
-        menu_positions.add_command(label="Page Three", command=lambda: parent.show_frame(PageThree))
-        menu_positions.add_command(label="Page Four", command=lambda: parent.show_frame(PageFour))
+        self.add_cascade(label="M/E/1", menu=menu_positions)
 
         menu_help = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu6", menu=menu_help)
-        menu_help.add_command(label="Open New Window", command=lambda: parent.OpenNewWindow())
+        self.add_cascade(label="M/D/1", menu=menu_help)
 
-
+        menu_exit = tk.Menu(self, tearoff=0)
+        self.add_cascade(label="Ajustes", menu=menu_file)
+        menu_exit.add_command(label="Salir", command=lambda: parent.Quit_application())
 class MyApp(tk.Tk):
 
     def __init__(self, *args, **kwargs):
@@ -81,7 +79,7 @@ class MyApp(tk.Tk):
 class GUI(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
-        self.main_frame = tk.Frame(self, bg="#BEB2A7", height=600, width=1024)
+        self.main_frame = tk.Frame(self, bg="#F1EFFA", height=600, width=1024)
         # self.main_frame.pack_propagate(0)
         self.main_frame.pack(fill="both", expand="true")
         self.main_frame.grid_rowconfigure(0, weight=1)
