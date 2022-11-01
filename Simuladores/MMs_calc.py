@@ -60,8 +60,10 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
         print(" rho: "+str(results["rho"]) + " > " + "1")
         return "Condicion de estado no estable, verifique sus datos!!!!!!!!"
 
+    #probabilidad de que no haya clientes
     results["p0"] = calcular_Po(results["lambda"], results["miu"], results["s"])
 
+    #probabilidad de que haya n clientes en el sistema
     results["pn"] = calcular_Pn(results["lambda"], results["miu"], results["s"], results["n"], results["p0"])
 
     #Lq: Promedio de clientes en la cola
