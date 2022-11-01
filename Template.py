@@ -10,9 +10,9 @@ from Simuladores.MMs_calc import calcular as mms_calc
 from Simuladores.MMG1_calc import calcular as mmg1_calc
 from Simuladores.MMsK_calc import calcular as mmsk_calc
 
-
-calcs = mm1_calc(1,2)
+calcs = mm1_calc(1, 2)
 pokemon_info = calcs.items()
+
 
 frame_styles = {"relief": "groove",
                 "bd": 3, "bg": "#FFFFFF",
@@ -106,6 +106,7 @@ class Some_Widgets(GUI):  # inherits from the GUI class
 
         txt1 = tk.Label(frame1, text="Ingresa de tasa servicios")
         tip1 = tk.Label(frame1, text="Tip:")
+
         txt1.pack()
         tip1.pack()
         tasa_servicios = tk.Entry(frame1)
@@ -117,6 +118,7 @@ class Some_Widgets(GUI):  # inherits from the GUI class
         tip2.pack()
         tasa_llegadas = tk.Entry(frame1)
         tasa_llegadas.pack()
+
 
 
         button1 = tk.Button(frame1, text="tk button", command=lambda: Refresh_data())

@@ -4,13 +4,18 @@ results = {
     "lambda": 0.0,
     "miu": 0.0,
     "s": 0,
+    "n": 0,
     "rho": 0.0,
+    "pn": 0.0,
     "p0": 0.0,
     "Lq": 0.0,
     "L": 0.0,
     "Wq": 0.0,
     "W": 0.0,
 }
+
+#TASA DE LLEGADAS SI ES > N ES OTRA FORMULA PARA PN
+#PO QUEDA IGUAL
 
 
 def calcular_Po(tasa_llegadas, tasa_servicios, servidores):
@@ -24,15 +29,31 @@ def calcular_Po(tasa_llegadas, tasa_servicios, servidores):
     po = po ** (-1)
     return po
 
+def calcular_Pn(tasa_llegadas, tasa_servicios, servidores, max_clientes,p0):
+    results["n"] = max_clientes
+    results["s"] = servidores
+    results["p0"] = p0
+    results["lambda"] = tasa_llegadas
+    results["miu"] = tasa_servicios
+    pn = 0
+    if results["n"] < results["s"] or results["n"] >= 0:
+        pn = ((results["lambda"] / results["miu"]) ** results["n"])\
+                        / factorial(results["n"])  * results["p0"]
+    elif results["n"] >= results["s"]:
+        pn = ((results["lambda"] / results["miu"]) ** results["n"]) \
+             / (factorial(results["s"]) * results["s"] ** (results["n"] -
+                                                           results["s"])) * results["p0"]
+    return pn
 def calcular_Lq(tasa_llegadas, tasa_servicios, servidores):
     lq = (results["p0"] * ((tasa_llegadas/tasa_servicios)**servidores) * results["rho"])\
          / (factorial(servidores) * ((1-results["rho"])**2))
     return lq
 
-def calcular(tasa_llegadas, tasa_servicios, servidores):
+def calcular(tasa_llegadas, tasa_servicios, servidores,n):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["s"] = servidores
+    results["n"] = n
 
     # RO: fact de utilizacion de instalacion
     # del servicio
@@ -42,6 +63,8 @@ def calcular(tasa_llegadas, tasa_servicios, servidores):
         return "Condicion de estado no estable, verifique sus datos!!!!!!!!"
 
     results["p0"] = calcular_Po(results["lambda"], results["miu"], results["s"])
+
+    results["pn"] = calcular_Pn(results["lambda"], results["miu"], results["s"], results["n"], results["p0"])
 
     #Lq: Promedio de clientes en la cola
     results["Lq"] = calcular_Lq(tasa_llegadas,tasa_servicios,servidores)
@@ -57,4 +80,4 @@ def calcular(tasa_llegadas, tasa_servicios, servidores):
 
     return results
 
-#print(calcular(100,60,2))
+print(calcular(2,3,2,2))
