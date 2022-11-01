@@ -14,9 +14,7 @@ results = {
     "W": 0.0,
 }
 
-#TASA DE LLEGADAS SI ES > N ES OTRA FORMULA PARA PN
-#PO QUEDA IGUAL
-
+# NUMEROS ENTEROS POSITIVOS NO CADENAS
 
 def calcular_Po(tasa_llegadas, tasa_servicios, servidores):
     suma = 0.0
