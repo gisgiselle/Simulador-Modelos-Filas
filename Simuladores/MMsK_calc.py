@@ -59,6 +59,9 @@ def calcular_lq(p0, lmbda, miu, s, rho):
 
 
 def calcular(tasa_llegadas, tasa_servicios, servidores, max_clientes,n):
+    if servidores > max_clientes:
+        print("Los servidores deben ser menores o iguales al maximo de clientes")
+        return
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["s"] = servidores
