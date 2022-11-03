@@ -80,4 +80,5 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
 
     return results
 
-print(calcular(2,3,2,2))
+
+print(calcular(2,3,2,100))
