@@ -1,4 +1,5 @@
 from math import factorial
+import pprint
 
 results = {
     "lambda": 0.0,
@@ -81,4 +82,4 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
     return results
 
 
-print(calcular(2,3,2,100))
+pprint.pprint(calcular(2,3,2,100))
