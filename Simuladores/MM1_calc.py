@@ -7,13 +7,14 @@ results = {
     "L": 0.0,
     "Wq": 0.0,
     "W": 0.0,
+    "s": 1
 }
 def calcular(tasa_servicios, tasa_llegadas):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     # RO: fact de utilizacion de instalacion
     # del servicio
-    results["ro"] = tasa_llegadas / tasa_servicios
+    results["ro"] = tasa_llegadas / results["s"]*tasa_servicios
     results["p0"] = 1 - results["ro"]
     #Lq: Promedio de clientes en la cola
     results["Lq"] = (tasa_llegadas ** 2) / (tasa_servicios * (tasa_servicios - tasa_llegadas))

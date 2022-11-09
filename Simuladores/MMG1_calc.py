@@ -18,7 +18,7 @@ def calcular(tasa_servicios, tasa_llegadas, sigma):
     results["sigma"] = sigma
     results["s"] = 1
 
-    results["rho"] = results["lambda"] / results["miu"]
+    results["rho"] = results["lambda"] / results["s"]*results["miu"]
 
     results["p0"] = 1-results["rho"]
 

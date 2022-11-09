@@ -20,7 +20,7 @@ def calcular(tasa_llegada, tasa_servicios, k):
     results["k"] = k
     results["s"] = 1
 
-    results["rho"] = results["lambda"] / results["miu"]
+    results["rho"] = results["lambda"] / (results["s"]*results["miu"])
 
     results["p0"] = 1 - results["rho"]
 
@@ -34,3 +34,5 @@ def calcular(tasa_llegada, tasa_servicios, k):
     results["L"] = results["lambda"] * results["W"]
 
     return results
+
+pprint.pprint(calcular(3,2,1))
