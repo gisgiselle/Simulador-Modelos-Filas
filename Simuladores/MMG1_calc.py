@@ -19,16 +19,18 @@ def calcular(tasa_servicios, tasa_llegadas, sigma):
     results["s"] = 1
 
     results["rho"] = results["lambda"] / results["s"]*results["miu"]
+    if results["lambda"] > (results["s"] * results["rho"]) :
+        return 
+    else:
+        results["p0"] = 1-results["rho"]
 
-    results["p0"] = 1-results["rho"]
+        results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
 
-    results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
+        results["L"] = results["rho"] + results["Lq"]
 
-    results["L"] = results["rho"] + results["Lq"]
+        results["Wq"] = results["Lq"] / results["lambda"]
 
-    results["Wq"] = results["Lq"] / results["lambda"]
+        results["W"] = results["Wq"] + (1/results["miu"])
 
-    results["W"] = results["Wq"] + (1/results["miu"])
-
-    return results
+        return results
 

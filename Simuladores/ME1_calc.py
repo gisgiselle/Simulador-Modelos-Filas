@@ -21,18 +21,22 @@ def calcular(tasa_llegada, tasa_servicios, k):
     results["s"] = 1
 
     results["rho"] = results["lambda"] / (results["s"]*results["miu"])
+    if results["lambda"] > (results["s"] * results["rho"]) :
+        return
+    else:
+        results["p0"] = 1 - results["rho"]
 
-    results["p0"] = 1 - results["rho"]
+        results["Lq"] = ((1+results["k"]) / (2 * results["k"])) * (results["lambda"])**2 / \
+                        (results["miu"] * (results["miu"]-results["lambda"]))
 
-    results["Lq"] = ((1+results["k"]) / (2 * results["k"])) * (results["lambda"])**2 / \
-                    (results["miu"] * (results["miu"]-results["lambda"]))
+        results["Wq"] = results["Lq"] / results["lambda"]
 
-    results["Wq"] = results["Lq"] / results["lambda"]
+        results["W"] = results["Wq"] + (1 / results["miu"])
 
-    results["W"] = results["Wq"] + (1 / results["miu"])
+        results["L"] = results["lambda"] * results["W"]
 
-    results["L"] = results["lambda"] * results["W"]
+        return results
 
-    return results
 
-pprint.pprint(calcular(3,2,1))
+#.pprint(calcular(3,2hola
+# ,1))

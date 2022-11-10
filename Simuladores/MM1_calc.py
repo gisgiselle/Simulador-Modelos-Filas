@@ -15,16 +15,19 @@ def calcular(tasa_servicios, tasa_llegadas):
     # RO: fact de utilizacion de instalacion
     # del servicio
     results["ro"] = tasa_llegadas / results["s"]*tasa_servicios
-    results["p0"] = 1 - results["ro"]
-    #Lq: Promedio de clientes en la cola
-    results["Lq"] = (tasa_llegadas ** 2) / (tasa_servicios * (tasa_servicios - tasa_llegadas))
-    #Promedio de clientes en el sistema
-    results["L"] = tasa_llegadas / (tasa_servicios - tasa_llegadas)
-    #Tiempo esperado en la cola
-    results["Wq"] = results["Lq"] / tasa_llegadas
-    #Tiempo promedio en el sistema
-    results["W"] = results["L"] / tasa_llegadas
+    if results["lambda"] > (results["s"] * results["rho"]) :
+        return
+    else:
+        results["p0"] = 1 - results["ro"]
+        #Lq: Promedio de clientes en la cola
+        results["Lq"] = (tasa_llegadas ** 2) / (tasa_servicios * (tasa_servicios - tasa_llegadas))
+        #Promedio de clientes en el sistema
+        results["L"] = tasa_llegadas / (tasa_servicios - tasa_llegadas)
+        #Tiempo esperado en la cola
+        results["Wq"] = results["Lq"] / tasa_llegadas
+        #Tiempo promedio en el sistema
+        results["W"] = results["L"] / tasa_llegadas
 
-    return results
+        return results
 
 #print(calcular(3,2))
