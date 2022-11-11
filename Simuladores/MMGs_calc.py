@@ -9,23 +9,21 @@ results = {
     "L": 0.0,
     "Wq": 0.0,
     "W": 0.0,
-    "sigma": 0.0
+    "sigma":0.0
 }
 
 #QUE ES SIGMA??
-def calcular(tasa_servicios, tasa_llegadas, sigma, n):
+def calcular(tasa_servicios, tasa_llegadas, sigma,n,s):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["sigma"] = sigma
-    results["s"] = 1
-    results["n"] = n
+    results["s"] = s
 
+    results["rho"] = results["lambda"] / results["s"]*results["miu"]
 
-    results["rho"] = (tasa_llegadas / (1*tasa_servicios))
+    results["p0"] = 1-results["rho"]
 
-    results["p0"] = 1 - results["rho"]
-
-    results["pn"] = (results["rho"] ** results["n"]) * results["p0"]
+    results["pn"] = (results["rho"] ** n) * results["p0"]
 
     results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
 
@@ -37,4 +35,4 @@ def calcular(tasa_servicios, tasa_llegadas, sigma, n):
 
     return results
 
-print(calcular(2,1,3,200))
+print(calcular(1,2,3,200,1))
