@@ -13,11 +13,11 @@ results = {
 }
 
 #QUE ES SIGMA??
-def calcular(tasa_servicios, tasa_llegadas, sigma,n):
+def calcular(tasa_servicios, tasa_llegadas, sigma,n,s):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["sigma"] = sigma
-    results["s"] = 1
+    results["s"] = s
 
     results["rho"] = results["lambda"] / results["s"]*results["miu"]
 
@@ -35,4 +35,4 @@ def calcular(tasa_servicios, tasa_llegadas, sigma,n):
 
     return results
 
-print(calcular(1,2,3,200))
+print(calcular(1,2,3,200,1))

@@ -14,11 +14,11 @@ results = {
     "W": 0.0,
 }
 
-def calcular(tasa_llegada, tasa_servicios, k):
+def calcular(tasa_llegada, tasa_servicios, k,s):
     results["lambda"] = tasa_llegada
     results["miu"] = tasa_servicios
     results["k"] = k
-    results["s"] = 1
+    results["s"] = s
 
     results["rho"] = results["lambda"] / (results["s"]*results["miu"])
 
@@ -36,4 +36,4 @@ def calcular(tasa_llegada, tasa_servicios, k):
     return results
 
 
-pprint.pprint(calcular(1,2,1))
+pprint.pprint(calcular(1,2,1,1))
