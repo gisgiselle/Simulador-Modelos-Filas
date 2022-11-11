@@ -16,8 +16,10 @@ def calcular(tasa_llegadas,tasa_servicios):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
 
-    results["rho"] = results["lambda"] / results["s"]*results["miu"]
-    if results["lambda"] > (results["s"] * results["rho"]) :
+    results["rho"] = results["lambda"] / (results["s"]*results["miu"])
+
+    if results["lambda"] < (results["s"] * results["rho"]) :
+        print("nel")
         return
     else:
         results["p0"] = 1 - results["rho"]
