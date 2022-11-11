@@ -57,10 +57,11 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
     # RO: fact de utilizacion de instalacion
     # del servicio
     results["rho"] = results["lambda"] / (results["s"] * results["miu"])
-    if(results["rho"] > 1):
-        print(" rho: "+str(results["rho"]) + " > " + "1")
-        return "Condicion de estado no estable, verifique sus datos!!!!!!!!"
 
+    if results["rho"] < 1:
+        print("lambda con valor de "+str(results["lambda"])+" debe ser "
+                                                            "mayor que miu con valor de  "+ str(results["miu"]))
+        return
     #probabilidad de que no haya clientes
     results["p0"] = calcular_Po(results["lambda"], results["miu"], results["s"])
 
