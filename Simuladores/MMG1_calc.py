@@ -1,9 +1,11 @@
+import pprint
 results = {
     "lambda": 0.0,
     "miu": 0.0,
     "s": 0,
     "rho": 0.0,
     "p0": 0.0,
+    "pn":0.0,
     "Lq": 0.0,
     "L": 0.0,
     "Wq": 0.0,
@@ -11,26 +13,28 @@ results = {
     "sigma":0.0
 }
 
-#QUE ES SIGMA??
-def calcular(tasa_servicios, tasa_llegadas, sigma):
+
+def calcular(tasa_servicios, tasa_llegadas, sigma,n):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["sigma"] = sigma
     results["s"] = 1
+    results["n"] = n
 
-    results["rho"] = results["lambda"] / results["s"]*results["miu"]
-    if results["lambda"] > (results["s"] * results["rho"]) :
-        return 
-    else:
-        results["p0"] = 1-results["rho"]
+    results["rho"] = results["lambda"] / (results["s"] * results["miu"])
 
-        results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
+    results["p0"] = 1-results["rho"]
 
-        results["L"] = results["rho"] + results["Lq"]
+    results["pn"] = (results["rho"]**results["n"] )*results["p0"]
 
-        results["Wq"] = results["Lq"] / results["lambda"]
+    results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
 
-        results["W"] = results["Wq"] + (1/results["miu"])
+    results["L"] = results["rho"] + results["Lq"]
 
-        return results
+    results["Wq"] = results["Lq"] / results["lambda"]
 
+    results["W"] = results["Wq"] + (1/results["miu"])
+
+    return results
+
+pprint.pprint(calcular(3,2,2))

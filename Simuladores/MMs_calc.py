@@ -58,11 +58,6 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
     # del servicio
     results["rho"] = results["lambda"] / (results["s"] * results["miu"])
 
-    if results["rho"] < 1:
-        print("lambda con valor de "+str(results["lambda"])+" debe ser "
-                                                            "mayor que miu con valor de  "+ str(results["miu"]))
-        return
-
     #probabilidad de que no haya clientes
     results["p0"] = calcular_Po(results["lambda"], results["miu"], results["s"])
 

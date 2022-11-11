@@ -91,6 +91,9 @@ def calcular(tasa_llegadas, tasa_servicios, servidores, max_clientes,n):
 
     results["tasaUtil"] = 1 - results["p0"]
 
+
+    #MAKING RESULTS USER FRIENDLY
+
     return results
 
-pprint.pprint(calcular(2, 3, 1,50,20))
+print(calcular(2, 3, 1,50,20))

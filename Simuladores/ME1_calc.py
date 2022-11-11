@@ -7,6 +7,7 @@ results = {
     "s": 0,
     "k": 0.0,
     "rho": 0.0,
+    "pn": 0.0,
     "p0": 0.0,
     "Lq": 0.0,
     "L": 0.0,
@@ -14,29 +15,28 @@ results = {
     "W": 0.0,
 }
 
-def calcular(tasa_llegada, tasa_servicios, k):
+def calcular(tasa_llegada, tasa_servicios, k,n):
     results["lambda"] = tasa_llegada
     results["miu"] = tasa_servicios
     results["k"] = k
     results["s"] = 1
+    results["n"] = n
 
-    results["rho"] = results["lambda"] / (results["s"]*results["miu"])
-    if results["lambda"] > (results["s"] * results["rho"]) :
-        return
-    else:
-        results["p0"] = 1 - results["rho"]
+    #REVISAR LAMBDA MENOR A FUERZAS
+    results["rho"] = (results["lambda"]) / (results["s"] * results["miu"])
 
-        results["Lq"] = ((1+results["k"]) / (2 * results["k"])) * (results["lambda"])**2 / \
-                        (results["miu"] * (results["miu"]-results["lambda"]))
+    results["p0"] = 1 - results["rho"]
+    results["pn"] = (results["rho"]**results["n"] )*results["p0"]
+    results["Lq"] = ((1+results["k"]) / (2 * results["k"])) * (results["lambda"])**2 / \
+                    (results["miu"] * (results["miu"]-results["lambda"]))
 
-        results["Wq"] = results["Lq"] / results["lambda"]
+    results["Wq"] = results["Lq"] / results["lambda"]
 
-        results["W"] = results["Wq"] + (1 / results["miu"])
+    results["W"] = results["Wq"] + (1 / results["miu"])
 
-        results["L"] = results["lambda"] * results["W"]
+    results["L"] = results["lambda"] * results["W"]
 
-        return results
+    return results
 
 
-#.pprint(calcular(3,2hola
-# ,1))
+pprint.pprint(calcular(2,3 ,1,100))
