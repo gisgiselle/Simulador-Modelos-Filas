@@ -6,23 +6,28 @@ results = {
     "miu": 0.0,
     "s": 0,
     "k": 0.0,
+    "n": 0.0,
     "rho": 0.0,
     "p0": 0.0,
+    "pn": 0.0,
     "Lq": 0.0,
     "L": 0.0,
     "Wq": 0.0,
     "W": 0.0,
 }
 
-def calcular(tasa_llegada, tasa_servicios, k):
+def calcular(tasa_llegada, tasa_servicios, k, n):
     results["lambda"] = tasa_llegada
     results["miu"] = tasa_servicios
     results["k"] = k
     results["s"] = 1
+    results["n"] = n
 
     results["rho"] = results["lambda"] / (results["s"]*results["miu"])
 
     results["p0"] = 1 - results["rho"]
+
+    results["pn"] = (results["rho"]**results["n"]) * results["p0"]
 
     results["Lq"] = ((1+results["k"]) / (2 * results["k"])) * (results["lambda"])**2 / \
                     (results["miu"] * (results["miu"]-results["lambda"]))
@@ -36,4 +41,4 @@ def calcular(tasa_llegada, tasa_servicios, k):
     return results
 
 
-pprint.pprint(calcular(1,2,1))
+pprint.pprint(calcular(1,2,1,400))
