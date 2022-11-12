@@ -5,3 +5,4 @@ def validate_lambda(lmbda, s, miu):
     return "Por favor valida tus datos ingresados"
 
 #validate_lambda(2,1,1)
+
