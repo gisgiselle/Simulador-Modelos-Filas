@@ -35,4 +35,3 @@ def calcular(tasa_servicios, tasa_llegadas, sigma,n,s):
 
     return results
 
-print(calcular(1,2,3,200,1))

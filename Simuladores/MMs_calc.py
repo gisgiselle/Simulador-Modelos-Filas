@@ -84,4 +84,3 @@ def calcular(tasa_llegadas, tasa_servicios, servidores,n):
     return results
 
 
-pprint.pprint(calcular(2,3,2,100))
