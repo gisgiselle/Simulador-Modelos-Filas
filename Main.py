@@ -1,5 +1,5 @@
 from Simuladores.MDs_calc import calcular as md1_calc
-from Simuladores.ME1_calc import calcular as me1_calc
+from Simuladores.MEk1_calc import calcular as me1_calc
 from Simuladores.MM1_calc import calcular as mm1_calc
 from Simuladores.MMG1_calc import calcular as mmg1_calc
 from Simuladores.MMs_calc import calcular as mms_calc
@@ -39,12 +39,10 @@ if opt == '1':
     inputUsuario2 = input()
     print(validar2(inputUsuario2))
     s = validar2(inputUsuario2)
-    print("Porfavor dame el valor de rho (double):" )
-    inputUsuario = input()
-    print(validar1(inputUsuario))
-    r = validar1(inputUsuario)
-    print(l, m, s, r)
-    print(md1_calc(l, m, s, r))
+    if validarLambda(l, s, m):
+        md1_calc(l, m, s)
+    else:
+        print("Lambda no valido") 
 elif opt == '2':
     print(me1_calc(3, 2, 1))
 elif opt == '3':
