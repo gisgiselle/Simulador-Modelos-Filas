@@ -1,3 +1,5 @@
+import pprint
+
 results = {
     "lambda": 0.0,
     "miu": 0.0,
@@ -11,7 +13,6 @@ results = {
     "sigma":0.0
 }
 
-#QUE ES SIGMA??
 def calcular(tasa_servicios, tasa_llegadas, sigma):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
@@ -30,5 +31,5 @@ def calcular(tasa_servicios, tasa_llegadas, sigma):
 
     results["W"] = results["Wq"] + (1/results["miu"])
 
-    return print(results)
+    return pprint.pprint(results)
 
