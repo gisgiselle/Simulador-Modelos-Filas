@@ -12,7 +12,6 @@ results = {
     "sigma":0.0
 }
 
-#QUE ES SIGMA??
 def calcular(tasa_servicios, tasa_llegadas, sigma,n,s):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
