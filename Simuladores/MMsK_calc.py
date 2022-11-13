@@ -76,34 +76,36 @@ def calcular_lq(tasa_servicios, tasa_llegadas, s):
 
 
 def calcular(tasa_llegadas, tasa_servicios, servidores, max_clientes,n):
-    if servidores > max_clientes:
-        print("Los servidores deben ser menores o iguales al maximo de clientes")
-        return
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["s"] = servidores
     results["k"] = max_clientes
     results["n"] = n
 
-    results["p0"] = calcular_po(results["lambda"], results["miu"], results["s"], results["k"])
+    if  servidores  >= max_clientes:
+        print("Los servidores deben ser menores o iguales al maximo de clientes")
+        return
 
-    results["pn"] = calcular_pn(results["lambda"], results["miu"], results["s"],results["n"], results["k"])
+    else:
+        results["p0"] = calcular_po(results["lambda"], results["miu"], results["s"], results["k"])
+
+        results["pn"] = calcular_pn(results["lambda"], results["miu"], results["s"],results["n"], results["k"])
 
 
-    results["pk"] = ((results["lambda"] / results["miu"]) ** results["k"]) \
-                    / (factorial(results["s"]) * (results["s"] ** (results["k"] - results["s"]))) * results["p0"]
+        results["pk"] = ((results["lambda"] / results["miu"]) ** results["k"]) \
+                        / (factorial(results["s"]) * (results["s"] ** (results["k"] - results["s"]))) * results["p0"]
 
-    results["Lq"] = calcular_lq(results["lambda"], results["miu"], results["s"])
+        results["Lq"] = calcular_lq(results["lambda"], results["miu"], results["s"])
 
-    results["lambdaE"] = results["lambda"] * (1 - results["pk"])
+        results["lambdaE"] = results["lambda"] * (1 - results["pk"])
 
-    results["Wq"] = results["Lq"] / results["lambdaE"]
+        results["Wq"] = results["Lq"] / results["lambdaE"]
 
-    results["W"] = results["Wq"] + (1 / results["miu"])
+        results["W"] = results["Wq"] + (1 / results["miu"])
 
-    results["L"] = results["lambdaE"] * results["W"]
+        results["L"] = results["lambdaE"] * results["W"]
 
-    results["tasaUtil"] = 1 - results["p0"]
+        results["tasaUtil"] = 1 - results["p0"]
 
-    return results
+        return pprint.pprint(results)
 

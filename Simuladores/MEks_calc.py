@@ -38,6 +38,6 @@ def calcular(tasa_llegada, tasa_servicios, k,s,n):
 
     results["L"] = results["lambda"] * results["W"]
 
-    return results
+    return pprint.pprint(results)
 
 

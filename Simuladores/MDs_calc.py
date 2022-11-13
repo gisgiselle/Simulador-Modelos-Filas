@@ -34,5 +34,5 @@ def calcular(tasa_llegadas,tasa_servicios,s,n):
     results["W"] = results["Wq"] + (1 / results["miu"])
 
 
-    return results
+    return print(results)
 

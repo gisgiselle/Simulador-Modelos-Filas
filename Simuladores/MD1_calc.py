@@ -17,6 +17,7 @@ results = {
 def calcular(tasa_llegadas,tasa_servicios,n):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
+    results["n"] = n
 
     results["rho"] = results["lambda"] / (results["s"]*results["miu"])
 
@@ -29,6 +30,5 @@ def calcular(tasa_llegadas,tasa_servicios,n):
 
     results["W"] = results["Wq"] + (1 / results["miu"])
 
-
-    return results
+    return pprint.pprint(results)
 
