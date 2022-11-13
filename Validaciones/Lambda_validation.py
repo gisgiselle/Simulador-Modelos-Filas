@@ -4,5 +4,4 @@ def validate_lambda(lmbda, s, miu):
                                                            "" +str(s)+" y la tasa de servicios o miu: "+str(miu))
         return False
     return True
-#print(validate_lambda(1,12,1))
 
