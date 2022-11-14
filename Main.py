@@ -244,8 +244,19 @@ while opt != '8':
                 sig = True
 
         s = 1
+
+        inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
+        n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         if validarLambda(l, s, m):
-            mg1_calc(m, l, sig)
+            mg1_calc(m, l, sig,n)
 
     elif opt == '6':
         print("****** CALCULANDO M/M/s   ******")
