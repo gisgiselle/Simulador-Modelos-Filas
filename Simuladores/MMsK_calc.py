@@ -83,7 +83,7 @@ def calcular(tasa_llegadas, tasa_servicios, servidores, max_clientes,n):
     results["k"] = max_clientes
     results["n"] = n
 
-    if  servidores  <  max_clientes:
+    if servidores < max_clientes:
         return print("Los servidores deben ser menores o iguales al maximo de clientes")
 
     else:
