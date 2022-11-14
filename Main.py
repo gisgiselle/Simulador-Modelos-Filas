@@ -50,6 +50,7 @@ while opt != '8':
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
 
+
         if not m:
             while not m:
                 inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")

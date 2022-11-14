@@ -15,7 +15,8 @@ def inputFloat(inputUsuario):
                 nowfloat = float(nnewstr)
                 return nowfloat
     else:
-        return print("ERROR, introduzca un valor valido")
+        print("ERROR, introduzca un valor valido")
+        return False
 
 def inputInt(inputUsuario2):
     str2 = inputUsuario2
