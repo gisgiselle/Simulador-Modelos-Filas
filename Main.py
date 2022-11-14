@@ -1,6 +1,5 @@
 from Simuladores.MD1_calc import calcular as md1_calc
 from Simuladores.MEks_calc import calcular as meks_calc
-from Simuladores.MDs_calc import calcular as mds_calc
 from Simuladores.MEk1_calc import calcular as mek1_calc
 from Simuladores.MM1_calc import calcular as mm1_calc
 from Simuladores.MG1 import calcular as mg1_calc
