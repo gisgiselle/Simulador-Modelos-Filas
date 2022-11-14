@@ -22,13 +22,13 @@ def calcular(tasa_servicios, tasa_llegadas, sigma,n):
     results["n"] = 1
 
 
-    results["rho"] = results["lambda"] / results["s"]*results["miu"]
+    results["rho"] = results["lambda"] / (results["s"]*results["miu"])
 
     results["p0"] = 1-results["rho"]
 
     results["pn"] = (results["rho"] ** results["n"]) * results["p0"]
 
-    results["Lq"] = ((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2) / (2 * (1-results["rho"]))
+    results["Lq"] = (((results["lambda"]**2)*results["sigma"]**2) + (results["rho"]**2)) / (2 * (1-results["rho"]))
 
     results["L"] = results["rho"] + results["Lq"]
 
