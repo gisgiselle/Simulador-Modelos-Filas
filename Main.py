@@ -10,6 +10,9 @@ from Validaciones.Lambda_validation import validate_lambda as validarLambda
 from Validaciones.int_float_validation import inputFloat as validar_float
 from Validaciones.int_float_validation import inputInt as validar_int
 
+
+
+
 opt = ''
 
 while opt != '8':
@@ -34,10 +37,25 @@ while opt != '8':
 
     if opt == '1':
         print("****** CALCULANDO M/D/1 ******")
-        inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
-        l = validar_float(inputUsuario)
+        inputUsuariol = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
+        l = validar_float(inputUsuariol)
+
+        if not l:
+            while not l:
+                inputUsuariol = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuariol)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
         s = 1
