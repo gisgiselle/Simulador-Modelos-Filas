@@ -1,4 +1,3 @@
-#ERRORES NO ENCONTRADOS AUN EN P0
 
 from math import factorial
 import pprint
@@ -22,7 +21,7 @@ results = {
 
 
 
-def calcular_po(tasa_servicios, tasa_llegadas, s, k):
+def calcular_po(tasa_llegadas, tasa_servicios, s, k):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["s"] = s
@@ -33,24 +32,23 @@ def calcular_po(tasa_servicios, tasa_llegadas, s, k):
     j = s + 1
 
     for i in range(j):
-        sum_s += ((results["lambda"] / results["miu"]) ** i) / factorial(i)
+        sum_s += ((results["lambda"] / results["miu"]) ** i) / factorial(i) +\
+                 (results["lambda"]**results["s"]) / factorial(s)
 
     for j in range(results["k"]+1):
         sum_k += (results["lambda"] / results["s"] * results["miu"]) ** (j - s)
 
-    sum_k = sum_k * ((results["lambda"] / results["miu"]) ** results["s"]) / factorial(s)
-
-    sum_tot = 1 / (sum_s + sum_k)
-    return sum_tot
+        sum_tot = 1 / (sum_s + sum_k)
+        return sum_tot
 
 
-def calcular_pn(tasa_servicios, tasa_llegadas, s, n, k):
+def calcular_pn(tasa_llegadas, tasa_servicios, s, n, k):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["n"] = n
     results["s"] = s
     results["k"] = k
-
+    part2 = 0
     if results["n"] > results["k"]:
         part2 = 0
 
@@ -63,14 +61,17 @@ def calcular_pn(tasa_servicios, tasa_llegadas, s, n, k):
 
     return part2
 
-def calcular_lq(tasa_servicios, tasa_llegadas, s):
+def calcular_lq(tasa_llegadas, tasa_servicios,s):
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     results["s"] = s
-
     results["rho"] = results["lambda"] / (results["s"] * results["miu"])
-    first = results["p0"] * ((results["lambda"] / results["miu"]) ** results["s"]) * results["rho"] / (factorial(results["s"]) * (1 - results["rho"]) ** 2)
-    second = 1 - ((2 / 3) ** 2) - (2 * ((2 / 3) ** 2)) * (1 - (2 / 3))
+
+    if results["s"] <= results["k"]:
+        first = (results["p0"] * ((results["lambda"] / results["miu"]) ** results["s"]) * results["rho"]) /((factorial(results["s"]) * (1 - results["rho"]) ** 2))
+        second = 1 - results["rho"]**(results["k"]-results["s"]) - \
+                 (results["k"] - results["s"])* (results["rho"]**(results["k"]-results["s"]))\
+                 * (1-results["rho"])
 
     return first * second
 
@@ -82,9 +83,8 @@ def calcular(tasa_llegadas, tasa_servicios, servidores, max_clientes,n):
     results["k"] = max_clientes
     results["n"] = n
 
-    if  servidores  >= max_clientes:
-        print("Los servidores deben ser menores o iguales al maximo de clientes")
-        return
+    if  servidores  <  max_clientes:
+        return print("Los servidores deben ser menores o iguales al maximo de clientes")
 
     else:
         results["p0"] = calcular_po(results["lambda"], results["miu"], results["s"], results["k"])
