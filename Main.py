@@ -57,8 +57,18 @@ while opt != '8':
                 m = validar_float(inputUsuario)
             else:
                 m = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+        
+        
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         s = 1
 
         if validarLambda(l, s, m):
@@ -68,12 +78,45 @@ while opt != '8':
         print("****** CALCULANDO M/Ek/1 ******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+            
+
         inputUsuarioK = input("Ingresa el grado de variabilidad de los tiempos de servicio o K con un numero entero (ejemplo:10): ")
         k = validar_int(inputUsuarioK)
+
+        if not k:
+            while not k:
+                inputUsuariok = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                k = validar_int(inputUsuariok)
+            else:
+                k = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         s = 1
         if validarLambda(l, s, m):
             mek1_calc(l, m, k, n)
@@ -81,15 +124,54 @@ while opt != '8':
         print("****** CALCULANDO M/Ek/s******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+        
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+
         inputUsuarioK = input(
             "Ingresa el grado de variabilidad de los tiempos de servicio o K con un numero entero (ejemplo:10): ")
         k = validar_int(inputUsuarioK)
+
+        if not k:
+            while not k:
+                inputUsuariok = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                k = validar_int(inputUsuariok)
+            else:
+                k = True
+
         inputUsuarioS = input("Ingresa el numero de servidores s con un numero entero (ejemplo:2): ")
         s = validar_int(inputUsuarioS)
+
+        if not s:
+            while not s:
+                inputUsuarioS = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                s = validar_int(inputUsuarioS)
+            else:
+                s = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
 
         if validarLambda(l, s, m):
             meks_calc(l, m, k, s,n)
@@ -98,10 +180,34 @@ while opt != '8':
         print("****** CALCULANDO M/M/1 ******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         s = 1
         if validarLambda(l, s, m):
             mm1_calc(m,l,n)
@@ -111,10 +217,34 @@ while opt != '8':
         print("****** CALCULANDO M/G/1 ******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+
         inputUsuarioSig = input("Ingresa la desviacion estandar sigma con decimales (ejemplo 1.0): ")
         sig = validar_float(inputUsuarioSig)
+
+        if not sig:
+            while not sig:
+                inputUsuarioSig = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                sig = validar_float(inputUsuarioSig)
+            else:
+                sig = True
+
         s = 1
         if validarLambda(l, s, m):
             mg1_calc(m, l, sig)
@@ -123,12 +253,44 @@ while opt != '8':
         print("****** CALCULANDO M/M/s   ******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+
         inputUsuarios = input("Ingresa el numero de servidores s con un numero entero (ejemplo:4 ): ")
         s = validar_int(inputUsuarios)
+
+        if not s:
+            while not s:
+                inputUsuarios = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                s = validar_int(inputUsuarios)
+            else:
+                s = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         if validarLambda(l, s, m):
             mms_calc(l,m,s,n)
 
@@ -136,14 +298,54 @@ while opt != '8':
         print("****** CALCULANDO M / M / s / K   ******")
         inputUsuario = input("Ingresa la tasa de llegadas o lambda con decimales (ejemplo 1.0): ")
         l = validar_float(inputUsuario)
+
+        if not l:
+            while not l:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                l = validar_float(inputUsuario)
+            else:
+                l = True
+
         inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
         m = validar_float(inputUsuario)
+
+        if not m:
+            while not m:
+                inputUsuario = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                m = validar_float(inputUsuario)
+            else:
+                m = True
+
         inputUsuarios = input("Ingresa el numero de servidores s con un numero entero DEBEN SER MENORES O IGUALES AL NUMERO DE CLIENTES MAXIMO K  (ejemplo:4 ): ")
         s = validar_int(inputUsuarios)
+
+        if not s:
+            while not s:
+                inputUsuarios = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                s = validar_int(inputUsuarios)
+            else:
+                s = True
+
         inputUsuarioK = input("Ingresa el numero maximo clientes k con un numero entero (ejemplo:500): ")
         k = validar_int(inputUsuarioK)
+
+        if not k:
+            while not k:
+                inputUsuariok = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                k = validar_int(inputUsuariok)
+            else:
+                k = True
+
         inputUsuario2 = input("Ingresa el numero de clientes n con un numero entero (ejemplo:500): ")
         n = validar_int(inputUsuario2)
+
+        if not n:
+            while not n:
+                inputUsuario2 = input("Ingresa la tasa de servicios o miu con decimales (ejemplo 1.0): ")
+                n = validar_int(inputUsuario2)
+            else:
+                n = True
+
         if validarLambda(l, s, m):
             mmsk_calc(l, m, s,k, n)
 
