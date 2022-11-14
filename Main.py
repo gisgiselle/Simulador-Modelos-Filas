@@ -17,7 +17,6 @@ opt = ''
 while opt != '8':
     menu = """
     Bienvenido al simulador de modelos de filas de espera
-
     A continuacion seleccione el modelo que desea utilizar:
 
     1. M/D/1
