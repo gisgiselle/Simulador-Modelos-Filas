@@ -29,20 +29,29 @@ def calcular_Po(tasa_llegadas, tasa_servicios, servidores):
     return po
 
 def calcular_Pn(tasa_llegadas, tasa_servicios, servidores, max_clientes,p0):
+
     results["n"] = max_clientes
     results["s"] = servidores
     results["p0"] = p0
     results["lambda"] = tasa_llegadas
     results["miu"] = tasa_servicios
     pn = 0
-    if results["n"] < results["s"] or results["n"] >= 0:
-        pn = ((results["lambda"] / results["miu"]) ** results["n"])\
-                        / factorial(results["n"])  * results["p0"]
-    elif results["n"] >= results["s"]:
-        pn = ((results["lambda"] / results["miu"]) ** results["n"]) \
-             / (factorial(results["s"]) * results["s"] ** (results["n"] -
-                                                           results["s"])) * results["p0"]
-    return pn
+    pn_array = []
+    pn_sum = 0
+    tot = 0
+    for x in range (results["n"]):
+        if results["n"] <= results["s"] or results["n"] >= 0:
+            pn = ((results["lambda"] / results["miu"]) ** results["n"])\
+                            / factorial(results["n"])  * results["p0"]
+        elif results["n"] > results["s"]:
+            pn = ((results["lambda"] / results["miu"]) ** results["n"]) / \
+                 (factorial(results["s"])*results["s"]**(results["n"])-results["s"])*results["p0"]
+
+        pn_array.append(pn)
+        pn_sum += pn_array[x]
+        print(x)
+    tot = 1 - pn_sum
+    return tot
 def calcular_Lq(tasa_llegadas, tasa_servicios, servidores):
     lq = (results["p0"] * ((tasa_llegadas/tasa_servicios)**servidores) * results["rho"])\
          / (factorial(servidores) * ((1-results["rho"])**2))
